@@ -1,14 +1,14 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "name": "aiid",
+    "description": "A SLIM API for aiid",
+    "keywords": ["aiid", "rest", "router", "psr7"],
+    "homepage": "https://github.com/unitedcarb/aiid/",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Mika Sue",
+            "email": "info@mikasue.com",
+            "homepage": "http://www.mikasue.com/"
         }
     ],
     "require": {
