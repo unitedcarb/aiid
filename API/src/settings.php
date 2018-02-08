@@ -16,13 +16,13 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         // MariaDB settings
-        'db' => [
+       /* 'db' => [
             'host' => 'localhost',
             'dbname' => 'aiid',
             'user' => 'root',
             'pass' => 'root'
-        ],
-        'heroku_db' => [
+        ], */
+        'db' => [
             'host' => 'gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
             'dbname' => 'choil1mdfgevnn7z',
             'user' => 'y7fhbz2nvghokyw1',
