@@ -17,7 +17,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 $app->get('/features', function(Request $request, Response $response, array $args) {
     $this->logger->info("Features '/' route");
  try {
-    $query = "SELECT * FROM features";
+    $query = "SELECT * FROM Features";
     $sth = $this->db->prepare($query);
     $sth->execute();
   } catch(PDOException $e){
