@@ -22,7 +22,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $sth->execute();
   } catch(PDOException $e){
     $this->logger->error("PDO Error " . $e->getMessage());
-    $message = array("Error"=>$e.getMessage());
+    $message = array("Error"=>$e->getMessage());
     $result=$response->withJson($message)->withHeader('Content-Type', 'application/json');
     return $result;
   }
