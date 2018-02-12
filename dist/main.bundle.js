@@ -238,7 +238,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var routes = [
     //  { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
     //  { path: 'logout', component: LogoutComponent },
-    { path: '', redirectTo: 'index', pathMatch: 'full' },
+    { path: '', redirectTo: 'inner', pathMatch: 'full' },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
