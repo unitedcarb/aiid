@@ -1,4 +1,14 @@
 /**
+ * Clickable Row In Tables
+ */
+
+jQuery(document).ready(function($) {
+    $(".clickable-table-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+
+/**
  * @class mApp  Metronic App class
  */
 
