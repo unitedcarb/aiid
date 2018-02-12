@@ -17935,11 +17935,11 @@ body.m-portlet--fullscreen {
   position: relative; }
   .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-time {
     display: table-cell;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 500;
     vertical-align: top;
     position: absolute;
-    padding-top: 0.18rem; }
+    padding-top: 0.5rem; }
   .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-cricle {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -17973,8 +17973,6 @@ body.m-portlet--fullscreen {
     display: table-cell;
     vertical-align: top; }
 
-.m-timeline-2:before {
-  background-color: #E7E9F5; }
 
 .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-time {
   color: #898b96; }
