@@ -18,7 +18,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $this->logger->info("Features '/' route");
  try {
     $query = "SELECT * FROM features";
-    $sth = $this->herokuDB->prepare($query);
+    $sth = $this->db->prepare($query);
     $sth->execute();
   } catch(PDOException $e){
     $this->logger->error("PDO Error " . $e->getMessage());
