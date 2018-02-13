@@ -29,12 +29,11 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $results = $sth->fetchAll(PDO::FETCH_OBJ);
     $message = array("count"=>sizeOf($results), "features"=>$results);
 
-    $result = $response->withJSON($message)->withHeader('Content-Type','application/json');
-
+    $result = $response->withJSON($message)
+    ->withHeader('Content-Type','application/json')
+    ->withHeader('Access-Control-Allow-Origin', "*");
+   
     return $result;
   });
 
-  $app->map(['GET','POST','PUT','DELETE','PATCH'], '/{routes:.+}', function($req,$res){
-    $handler = $this->notFoundHandler;
-    return $handler($req,$res);
-  });
+  ?>
