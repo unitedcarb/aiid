@@ -28,13 +28,4 @@ $container['db'] = function ($c) {
     return $pdo;
 };
 
-// Heroku database
-$container['herokuDB'] = function ($c) {
-    $connectionString = 'mysql://y7fhbz2nvghokyw1:ve4yow8xi3hzbasq@gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/choil1mdfgevnn7z';
-    $pdo = new PDO($connectionString);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    return $pdo;
-};
-
 ?>
