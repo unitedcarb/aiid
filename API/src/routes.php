@@ -3,6 +3,8 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+require "routes/getFeatures.php";
+
 // Routes
 
 $app->get('/', function (Request $request, Response $response, array $args) {
@@ -16,16 +18,9 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 
 $app->get('/features', function(Request $request, Response $response, array $args) {
     $this->logger->info("Features '/' route");
- try {
-    $query = "SELECT * FROM Features";
-    $sth = $this->db->prepare($query);
-    $sth->execute();
-  } catch(PDOException $e){
-    $this->logger->error("PDO Error " . $e->getMessage());
-    $message = array("Error"=>$e->getMessage());
-    $result=$response->withJson($message)->withHeader('Content-Type', 'application/json');
-    return $result;
-  }
+    
+    $result = getFeatures();
+
     $results = $sth->fetchAll(PDO::FETCH_OBJ);
     $message = array("count"=>sizeOf($results), "features"=>$results);
 
