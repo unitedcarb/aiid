@@ -18,7 +18,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $this->logger->info("Features '/' route");
  try {
     $query = "SELECT * FROM Features";
-    $sth = $this->db->prepare($query);
+    $sth = $this->herokuDB->prepare($query);
     $sth->execute();
   } catch(PDOException $e){
     $this->logger->error("PDO Error " . $e->getMessage());
@@ -30,10 +30,14 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $message = array("count"=>sizeOf($results), "features"=>$results);
 
     $result = $response->withJSON($message)
-    ->withHeader('Content-Type','application/json')
-    ->withHeader('Access-Control-Allow-Origin', "*");
+    ->withHeader('Content-Type','application/json');
    
     return $result;
   });
 
+
+  $app->map(['GET','POST','PUT','DELETE','PATCH'], '/{routes:.+}', function($req, $res){
+    $handler = $this->notFoundHandler;
+    return $handler($req, $res);
+  });
   ?>
