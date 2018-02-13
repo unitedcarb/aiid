@@ -16,18 +16,12 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         // MariaDB settings
-       /* 'db' => [
+         'db' => [
             'host' => 'localhost',
             'dbname' => 'aiid',
             'user' => 'root',
             'pass' => 'root'
-        ], */
-        'db' => [
-            'host' => 'gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-            'dbname' => 'choil1mdfgevnn7z',
-            'user' => 'y7fhbz2nvghokyw1',
-            'pass' => 've4yow8xi3hzbasq'
-        ],
+        ], 
         'auth' => [
           'root' => 'wayne',
           'aiid' => 'Pa33w0rd'
