@@ -43,6 +43,11 @@ export class InnerComponent implements OnInit, AfterViewInit {
     }
 
     getFeatureDetails(): void {
-       
+        this._featureService.getFeature(this.id)
+            .subscribe(
+                currentFeature => {
+                    this.currentFeature = currentFeature;
+                } 
+            )
        }
 }

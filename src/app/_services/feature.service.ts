@@ -26,6 +26,16 @@ export class FeatureService {
                     .catch(this.handleError);
   }
 
+  getFeature(id:any): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append("Authorization", "Basic " + btoa(this._authCreds));
+    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
+  
+    return  this._http.get(this._apiUrl + '/features/' + id, {headers:headers})
+                   // .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
+                    .catch(this.handleError);
+  }
+
   getSidebarFeatures(): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.append("Authorization", "Basic " + btoa(this._authCreds));

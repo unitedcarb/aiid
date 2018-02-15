@@ -7,7 +7,7 @@
 					<div class="m-portlet__head-caption">
 					  <div class="m-portlet__head-title">
 						<h3 class="m-portlet__head-text">
-						  Feature-1
+							{{currentFeature.featureName}}
 						</h3>
 					  </div>
 					</div>
@@ -15,15 +15,12 @@
 				  <div class="m-portlet__body">
 					<div class="row">
 					  <div class="col-md-9">
-						<h6>Headline-1</h6>
-						<p>Description-1</p>
+						<h6>{{currentFeature.marketingheadline}}</h6>
+						<p>{{currentFeature.marketingDescription}}</p>
 						<h6>Designer Personas</h6>
-						<p class="m-badge m-badge--metal m-badge--wide">Production Designer</p>
-						<p class="m-badge m-badge--metal m-badge--wide">Graphic Designer</p>
-						<p class="m-badge m-badge--metal m-badge--wide">Illustrator</p>
+						<p class="m-badge m-badge--metal m-badge--wide">{{currentFeature.personas}}</p>
 						<h6>Workflows</h6>
-						<p class="m-badge m-badge--metal m-badge--wide">Posters</p>
-						<p class="m-badge m-badge--metal m-badge--wide">Brochures</p>
+						<p class="m-badge m-badge--metal m-badge--wide">{{currentFeature.workflows}}</p>
 					  </div>
 					  <div class="col-md-3">
 						<i class="flaticon-layers m--font-metal"></i>&nbsp;&nbsp;<a class="m-link m--font-bolder" href="#">Designs</a>
