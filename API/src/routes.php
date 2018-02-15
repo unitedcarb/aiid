@@ -13,8 +13,6 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 
 
 $app->get('/features', function(Request $request, Response $response, array $args) {
-    $this->logger->info("Features '/' route");
-
     $results = getFeatures($this->db, $this->logger);
 
     if( isset( $results["Error"]) ) {
@@ -30,7 +28,6 @@ $app->get('/features', function(Request $request, Response $response, array $arg
 
 
     $app->get('/sidebarFeatures', function(Request $request, Response $response, array $args) {
-      $this->logger->info("Sidebar Features '/' route");
       $featureObj = populateSideBarFeatures($this->db, $this->logger);
 
       $message = array("message"=> $featureObj );
@@ -63,34 +60,84 @@ $app->get('/features', function(Request $request, Response $response, array $arg
 
   function populateSideBarFeatures($_db, $_logger){
     $featureArray = array();
-		$uniqueProducts = array();
-    $uniqueReleases = array();
-    $uniqueCategories = array();
-    $features = getFeatures($_db, $_logger);
+    
+    $features = getFeatures($_db,$_logger);
+    $uniqueProducts = getAllUniqueProducts($_db,$_logger);
+    foreach($uniqueProducts as $p){
+      $categoriesFeatureArray = array();
+      $releasesArray = array();
+      $featureObj = array();
 
-/*      foreach($f as $fetures){
-        array_push($featureArray, constructSidebarObj($f));
-      }
-  */
-      return $features;
+      $uniqueReleases = getUniqueReleasesForProduct($_db,$_logger, $p);
+      foreach($uniqueReleases as $r){
+        $uniqueCategories =  getUniqueCategoriesForRelease($_db,$logger,$r);
+          foreach($uniqueCategories as $c){
+            $releaseFeatures = getFeaturesforCategoryInRelease($_db,$logger,$r,$c);
+            array_push($categoriesFeatureArray, array("categoryName"=>$c, "categoryFeatures"=>$releaseFeatures));
+          }
+          array_push($releasesArray, array("releaseName"=>$r, "categories"=>$categoriesFeatureArray));
+        }
+        array_push($featureObj, array("productName"=>$p, "releases"=>$releasesArray));
+        array_push($featureArray, $featureObj);
     }
-
-
-  function constructSidebarObj($feature){
-    $categoryFeaturesArray = array();
-    $categoriesArray = array();
-    $releaseArray = array();
-
-    //just add feature to this category features array
-    $featureObj = array("_id"=>$feature->_id, "featureName"=>$feature->featureName);
-    array_push($categoryFeaturesArray,  $featureObj );
-    $categoryObj = array("categoryName"=>$feature->featureCategoryName, "categoryFeatures"=>$categoryFeaturesArray);
-    array_push($categoriesArray, $categoryObj);
-    $releaseObj = array("releaseName"=>$feature->releaseName, "categories"=>$categoriesArray);
-    array_push($releaseArray, $releaseObj);
-    $featureObj = array("productName"=>$feature->productName,"releases"=>$releaseArray);
-
-    return $featureObj;
+    
+    return $featureArray;
   }
 
-  ?>
+
+
+  function getAllUniqueProducts($_db, $_logger){
+    $uniqueProducts = array();
+    $features = getFeatures($_db,$logger);
+    foreach($features as $f){
+      if( !in_array($f->productName, $uniqueProducts, TRUE) ) {
+        array_push($uniqueProducts, $f->productName);
+      }
+    }
+    return $uniqueProducts;
+  }
+
+  function getUniqueReleasesForProduct($_db,$_logger,$product){
+    $uniqueReleases = array();
+    $features = getFeatures($_db,$logger);
+
+    foreach($features as $f){
+      if(trim($f->productName) == trim($product)) {
+        if( !in_array($f->releaseName, $uniqueReleases, TRUE) ) {
+          array_push($uniqueReleases, $f->releaseName);
+        } 
+     }
+    }
+    return $uniqueReleases;
+  }
+
+ function getUniqueCategoriesForRelease($_db,$logger,$release){
+  $uniqueCategories = array();
+  $features = getFeatures($_db,$logger);
+
+  foreach($features as $f){
+      if(trim($f->releaseName) == trim($release)) {
+        if( !in_array($f->featureCategoryName, $uniqueCategories, TRUE) ) {
+          array_push($uniqueCategories, $f->featureCategoryName);
+        } 
+     } 
+    }
+    return $uniqueCategories;
+ }
+
+ 
+ function getFeaturesforCategoryInRelease($_db,$_logger,$release,$category){
+  $releaseFeatures = array();
+  $features = getFeatures($_db,$_logger);
+
+  foreach($features as $f){
+    if(trim($f->releaseName) == $release && trim($f->featureCategoryName) == $category){
+      if( !in_array($f->featureName, $releaseFeatures, TRUE)) {
+        array_push($releaseFeatures, $f);
+      }
+    }
+  }
+  return $releaseFeatures;
+ } 
+
+?>
