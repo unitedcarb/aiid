@@ -29,9 +29,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
 
     $app->get('/sidebarFeatures', function(Request $request, Response $response, array $args) {
       $featureObj = populateSideBarFeatures($this->db, $this->logger);
-
-      $message = array("message"=> $featureObj );
-      $result = $response->withJSON($message)
+      $result = $response->withJSON($featureObj)
       ->withHeader('Content-Type','application/json');
 
       return $result;
@@ -56,7 +54,6 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $results = $sth->fetchAll(PDO::FETCH_OBJ);
     return $results;
   }
-
 
   function populateSideBarFeatures($_db, $_logger){
     $featureArray = array();
@@ -83,8 +80,6 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     
     return $featureArray;
   }
-
-
 
   function getAllUniqueProducts($_db, $_logger){
     $uniqueProducts = array();
@@ -125,7 +120,6 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     return $uniqueCategories;
  }
 
- 
  function getFeaturesforCategoryInRelease($_db,$_logger,$release,$category){
   $releaseFeatures = array();
   $features = getFeatures($_db,$_logger);
