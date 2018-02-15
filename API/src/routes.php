@@ -26,6 +26,20 @@ $app->get('/features', function(Request $request, Response $response, array $arg
 
   });
 
+  $app->get('/features/{id}', function(Request $request, Response $response, array $args) {
+    $results = findFeatures($this->db, $this->logger, $args['id']);
+
+    if( isset( $results["Error"]) ) {
+      $result= $response->withJSON($results['Error'])->withHeader('Content-Type', 'application/json');
+    } else {
+      $result = $response->withJSON($results)
+      ->withHeader('Content-Type','application/json');
+    }
+    return $result;
+
+  });
+
+
 
     $app->get('/sidebarFeatures', function(Request $request, Response $response, array $args) {
       $featureObj = populateSideBarFeatures($this->db, $this->logger);
@@ -54,6 +68,20 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     $results = $sth->fetchAll(PDO::FETCH_OBJ);
     return $results;
   }
+
+  function findFeatures($_db, $_logger, $featureId) {
+    try {
+      $query = "SELECT * FROM Features WHERE _id = :featureId";
+      $sth = $_db->prepare($query, array(":featureId"=>$featuerId));
+      $sth->execute();
+    } catch(PDOException $e){
+      $_logger->error("PDO Error " . $e->getMessage());
+      return array("Error"=> $e->getMessage() );
+    }
+    $results = $sth->fetchAll(PDO::FETCH_OBJ);
+    return $results;
+  }
+
 
   function populateSideBarFeatures($_db, $_logger){
     $featureArray = array();
