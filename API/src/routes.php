@@ -72,8 +72,8 @@ $app->get('/features', function(Request $request, Response $response, array $arg
   function findFeatures($_db, $_logger, $featureId) {
     try {
       $query = "SELECT * FROM Features WHERE _id = :featureId";
-      $sth = $_db->prepare($query, array(":featureId"=>$featuerId));
-      $sth->execute();
+      $sth = $_db->prepare($query);
+      $sth->execute(array(":featureId"=>$featuerId));
     } catch(PDOException $e){
       $_logger->error("PDO Error " . $e->getMessage());
       return array("Error"=> $e->getMessage() );
