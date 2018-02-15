@@ -33,7 +33,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
   });
 
 
-  $app->get('/sidebarFeatures', function(Request $request, Response $response, array $args){
+  $app->get('/sidebarFeatures', function(Request $request, Response $response, array $args) {
     $message = array("message"=>"Sidebar Features!");
 
     $result = $response->withJSON($message)
@@ -47,7 +47,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
 
 
 
-  function getFeatures(){
+  function getFeatures() {
     try {
       $query = "SELECT * FROM Features";
       $sth = $this->db->prepare($query);
