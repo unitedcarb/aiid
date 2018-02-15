@@ -73,12 +73,13 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     try {
       $query = "SELECT * FROM Features WHERE _id = :featureId";
       $sth = $_db->prepare($query);
-      $sth->execute(array(":featureId"=>$featureId));
+      $sth->bindParam(':featureId', $featureId);
+      $sth->execute();
     } catch(PDOException $e){
       $_logger->error("PDO Error " . $e->getMessage());
       return array("Error"=> $e->getMessage() );
     }
-    $results = $sth->fetchAll(PDO::FETCH_OBJ);
+    $results = $sth->fetch(PDO::FETCH_ASSOC);
     return $results;
   }
 
