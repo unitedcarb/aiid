@@ -32,22 +32,22 @@ $app->get('/features', function(Request $request, Response $response, array $arg
 
     
     $app->get('/experiments', function(Request $request, Response $response, array $args) {
-      $results = getExperiments($this_db, $this->logger);
+      $results = getExperiments($this->db, $this->logger);
       return returnResults($response, $results);
     });
 
     $app->get('/experiments/{filter}', function(Request $request, Response $response, array $args) {
-      $results = findExperiments($this_db, $this->logger);
+      $results = findExperiments($this->db, $this->logger);
       return returnResults($response, $results);
     });
 
     $app->get('/comments', function(Request $request, Response $response, array $args) {
-      $results = getComments($this_db, $this->logger);
+      $results = getComments($this->db, $this->logger);
       return returnResults($response, $results);
     });
 
     $app->get('/comments/{id}', function(Request $request, Response $response, array $args) {
-      $results = findComments($this_db, $this->logger,$args['id']);
+      $results = findComments($this->db, $this->logger,$args['id']);
       return returnResults($response, $results);
     });
 
