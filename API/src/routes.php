@@ -37,7 +37,7 @@ $app->get('/features', function(Request $request, Response $response, array $arg
     });
 
     $app->get('/experiments/{filter}', function(Request $request, Response $response, array $args) {
-      $results = findExperiments($this->db, $this->logger);
+      $results = findExperiments($this->db, $this->logger,$args['filter']);
       return returnResults($response, $results);
     });
 
