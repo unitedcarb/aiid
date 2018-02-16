@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/co
 import { Helpers } from '../../../../helpers';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 import { FeatureService } from '../../../../_services/feature.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IFeature } from '../../../../features';
 
 @Component({
@@ -16,23 +16,25 @@ export class InnerComponent implements OnInit, AfterViewInit {
     errorMessage: string;
     currentFeature: IFeature;
 
-    constructor(private _script: ScriptLoaderService, 
+    constructor(private _script: ScriptLoaderService, private _router: Router,
         private _featureService: FeatureService, private _route: ActivatedRoute ) { }
 
 
     ngOnInit() {
-        this._featureService.getFeatures()
-          .subscribe(
-            myfeatures => {
-              this.myfeatures = myfeatures;
-            },
-            error => this.errorMessage = <any>error);
-
+       
             this._route.params.subscribe(params=> {
-                this.id = +params['id'];
-
-                this.getFeatureDetails();
-            })
+                 this.id = +params['id'];
+                 this.getFeatureDetails();
+                });
+            
+            
+            this._featureService.getFeatures()
+            .subscribe(
+              myfeatures => {
+                this.myfeatures = myfeatures;
+              },
+              error => this.errorMessage = <any>error);
+  
     }
 
 

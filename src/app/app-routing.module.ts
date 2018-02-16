@@ -4,9 +4,9 @@ import { LogoutComponent } from "./auth/logout/logout.component";
 
 const routes: Routes = [
       
-  //  { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
-  //  { path: 'logout', component: LogoutComponent },
-    { path: '', redirectTo: 'inner', pathMatch: 'full' },
+    { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
+    { path: 'logout', component: LogoutComponent },
+    { path: '', redirectTo: 'engagement', pathMatch: 'full' }
 ];
 
 @NgModule({

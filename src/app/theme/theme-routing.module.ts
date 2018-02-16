@@ -7,10 +7,10 @@ const routes: Routes = [
     {
         "path": "",
         "component": ThemeComponent,
-       // "canActivate": [AuthGuard],
+        "canActivate": [AuthGuard],
         "children": [
             {
-                "path": "index",
+                "path": "engagement",
                 "loadChildren": ".\/pages\/aside-left-display-disabled\/index\/index.module#IndexModule"
             },
             {
