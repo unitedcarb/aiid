@@ -3,9 +3,9 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-require "./routes/features.php";
-require "./routes/experiments.php";
-require "./routes/comments.php";
+include "routes/features.php";
+include "routes/experiments.php";
+include "routes/comments.php";
 
 // Routes
 
