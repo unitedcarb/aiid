@@ -11,6 +11,7 @@ import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
 import { FeatureService } from "./_services/feature.service";
 import { HttpClientModule } from '@angular/common/http';
+import { ExperimentService } from './_services/experiment.service';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
         AuthModule,
         HttpClientModule
     ],
-    providers: [ScriptLoaderService,FeatureService],
+    providers: [ScriptLoaderService, FeatureService, ExperimentService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -305,26 +305,24 @@
 													<th title="Field #3" class="m-datatable__cell m-datatable__cell--sort" data-field="Hypothesis"><span style="width: 200px;">Hypothesis</span></th>
 												</tr>
 												</thead>
-												<tbody class="m-datatable__body" style="">
+												<tbody class="m-datatable__body"  *ngFor="let experiment of myExperiments">
 												<!--end: Datatable List -->	
 													
 													<tr data-row="0" class="m-datatable__row clickable-table-row" data-href="engagement-detail.html" style="left: 0px;">
 														<td data-field="Experiment" class="m-datatable__cell">
-															<span style="width: 110px;">Learning & Inspiration Gift </span>
+															<span style="width: 110px;">{{experiment.experiment}} </span>
 														</td>
 														<td data-field="Status" class="m-datatable__cell">
-															<span style="width: 110px;"><span class="m-badge  m-badge--warning m-badge--wide">Construction</span></span>
+															<span style="width: 110px;"><span class="m-badge  m-badge--warning m-badge--wide">{{experiment.status}}</span></span>
 														</td>
 														<td data-field="Overview" class="m-datatable__cell">
-															<span style="width: 200px;">Illustrator users can design their own diecut stickers and receive them within 4-days. Provide users with assets, training, and design tips.</span>
+															<span style="width: 200px;">{{experiment.overview}}</span>
 														</td>
 														<td data-field="Hypothesis" class="m-datatable__cell">
-															<span style="width: 200px;">Incentivizing learning and providing tangible reward increases loyalty and active use of Illustrator.</span>
+															<span style="width: 200px;">{{experiment.hypothesis}}</span>
 														</td>
 													</tr>
 														
-													
-
 												<!--end: Datatable List -->
 												</tbody>
 											</table>
