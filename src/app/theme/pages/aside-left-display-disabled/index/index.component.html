@@ -16,7 +16,7 @@
 														</div>
 														<div class="col m--align-right">
 															<span class="m-widget1__number m--font-info">
-																12
+																{{statusCompletedCnt}}
 															</span>
 														</div>
 													</div>
@@ -32,7 +32,7 @@
 														</div>
 														<div class="col m--align-right">
 															<span class="m-widget1__number m--font-success">
-																2
+																{{statusRunningCnt}}
 															</span>
 														</div>
 													</div>
@@ -48,7 +48,7 @@
 														</div>
 														<div class="col m--align-right">
 															<span class="m-widget1__number m--font-warning">
-																4
+																{{statusConstructionCnt}}
 															</span>
 														</div>
 													</div>
@@ -64,7 +64,7 @@
 														</div>
 														<div class="col m--align-right">
 															<span class="m-widget1__number m--font-metal">
-																5
+																{{statusPlanningCnt}}
 															</span>
 														</div>
 													</div>
@@ -80,7 +80,7 @@
 														</div>
 														<div class="col m--align-right">
 															<span class="m-widget1__number m--font-lightgrey">
-																12
+																{{statusBacklogCnt}}
 															</span>
 														</div>
 													</div>
@@ -313,7 +313,14 @@
 															<span style="width: 110px;">{{experiment.experiment}} </span>
 														</td>
 														<td data-field="Status" class="m-datatable__cell">
-															<span style="width: 110px;"><span class="m-badge  m-badge--warning m-badge--wide">{{experiment.status}}</span></span>
+															<span style="width: 110px;"><span class="m-badge m-badge--wide" 
+																[ngClass]="{'m-badge--info': experiment.status == 'Completed',
+																			'm-badge--success' : experiment.status == 'Running',
+																		'm-badge--warning' : experiment.status == 'Construction',
+																		'm-badge--metal' : experiment.status == 'Backlog',
+																		'm-badge--lightgrey' : experiment.status == 'Planning'
+															
+															}">{{experiment.status}}</span></span>
 														</td>
 														<td data-field="Overview" class="m-datatable__cell">
 															<span style="width: 200px;">{{experiment.overview}}</span>

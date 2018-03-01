@@ -14,23 +14,14 @@ export class ExperimentService {
 
   constructor(private _http: HttpClient) { }
 
-  getExperimentStatuses(): Observable<any> {
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(this._authCreds));
-    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
-  
-    return  this._http.get(this._apiUrl + '/experimentStatuses', {headers:headers})
-                    .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
-                    .catch(this.handleError);
-  }
-
+ 
   getExperiments(): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.append("Authorization", "Basic " + btoa(this._authCreds));
     headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
   
     return  this._http.get(this._apiUrl + '/experiments', {headers:headers})
-                    .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
+                   // .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
                     .catch(this.handleError);
   }
 
