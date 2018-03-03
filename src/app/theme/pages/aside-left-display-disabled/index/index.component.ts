@@ -61,4 +61,13 @@ export class IndexComponent implements OnInit, AfterViewInit {
         });
     }
 
+    filterExperimentByStatus(status) {
+        this._experimentService.getExperimentsByFilter(status)
+            .subscribe(
+              myexperiments => {
+                this.myExperiments = myexperiments;
+               },
+              error => this.errorMessage = <any>error);
+    }
+
 }
