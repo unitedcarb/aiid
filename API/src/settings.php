@@ -16,7 +16,7 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         // MariaDB settings
-      /*   'db' => [
+       /*  'db' => [
             'host' => 'localhost',
             'dbname' => 'aiid',
             'user' => 'root',

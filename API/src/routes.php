@@ -41,6 +41,18 @@ $app->get('/features', function(Request $request, Response $response, array $arg
       return returnResults($response, $results);
     });
 
+    $app->get('/searchExperiments', function(Request $request, Response $response, array $args) {
+      //get query params
+      $paramsArray = $request->getQueryParams();
+      if( sizeOf($paramsArray) > 0 ) {
+       $results = processQueryParams($this->db, $this->logger, $paramsArray );
+      } else {
+       $results = array("msg"=>"No Params Passed!");
+      }
+    
+      return returnResults($response, $results);
+    });
+
     $app->get('/comments', function(Request $request, Response $response, array $args) {
       $results = getComments($this->db, $this->logger);
       return returnResults($response, $results);
