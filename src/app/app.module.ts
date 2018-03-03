@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material';
 import { ThemeComponent } from './theme/theme.component';
 import { LayoutModule } from './theme/layouts/layout.module';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -25,7 +26,8 @@ import { ExperimentService } from './_services/experiment.service';
         AppRoutingModule,
         ThemeRoutingModule,
         AuthModule,
-        HttpClientModule
+        HttpClientModule,
+        MatSnackBarModule
     ],
     providers: [ScriptLoaderService, FeatureService, ExperimentService],
     bootstrap: [AppComponent]

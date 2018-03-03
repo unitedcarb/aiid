@@ -112,22 +112,22 @@
 																		<div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="max-height: 241.906px; overflow: hidden; min-height: 15px; position: absolute; transform: translate3d(0px, 34px, 0px); top: 0px; left: 0px; will-change: transform;">
 																			<ul class="dropdown-menu inner" role="listbox" aria-expanded="false" style="max-height: 227.906px; overflow-y: auto; min-height: 1px;">
 																				<li data-original-index="0" class="selected">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true" (click)="filterExperimentBy('category','all')">
 																						<span class="text">All</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="1">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('category','engagement')">
 																						<span class="text">Engagement</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="2">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('category','retention')">
 																						<span class="text">Retention</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="3">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('category','acquisition')">
 																					<span class="text">Acquisition</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
@@ -158,37 +158,37 @@
 																		<div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="max-height: 241.906px; overflow: hidden; min-height: 15px; position: absolute; transform: translate3d(0px, 34px, 0px); top: 0px; left: 0px; will-change: transform;">
 																			<ul class="dropdown-menu inner" role="listbox" aria-expanded="false" style="max-height: 227.906px; overflow-y: auto; min-height: 1px;">
 																				<li data-original-index="0" class="selected">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true" (click)="filterExperimentBy('journey','all')">
 																						<span class="text">All</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="1">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('journey','discover')">
 																						<span class="text">Discover</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="2">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('journey','try')">
 																						<span class="text">Try</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="3">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('journey','buy')">
 																					<span class="text">Buy</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="4">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('journey','setup')">
 																					<span class="text">Setup</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="5">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('journey','use')">
 																					<span class="text">Use</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="6">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('journey','renew')">
 																					<span class="text">Renew</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
@@ -224,47 +224,47 @@
 																		<div class="dropdown-menu open" role="combobox" x-placement="bottom-start" style="max-height: 241.906px; overflow: hidden; min-height: 15px; position: absolute; transform: translate3d(0px, 34px, 0px); top: 0px; left: 0px; will-change: transform;">
 																			<ul class="dropdown-menu inner" role="listbox" aria-expanded="false" style="max-height: 227.906px; overflow-y: auto; min-height: 1px;">
 																				<li data-original-index="0" class="selected">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true" (click)="filterExperimentBy('channel','all')">
 																						<span class="text">All</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="1">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','email')">
 																						<span class="text">Email</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="2">
-																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																					<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','thor')">
 																						<span class="text">Thor</span>
 																						<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="3">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','kaizen')">
 																					<span class="text">Kaizen</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="4">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','in-app')">
 																					<span class="text">In-App</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="5">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','adobe.com')">
 																					<span class="text">Adobe.com</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="6">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','social')">
 																					<span class="text">Social</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="7">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','marketing')">
 																					<span class="text">Marketing</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>
 																				<li data-original-index="8">
-																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+																				<a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false" (click)="filterExperimentBy('channel','other')">
 																					<span class="text">Other</span>
 																					<span class="glyphicon glyphicon-ok check-mark"></span></a>
 																				</li>

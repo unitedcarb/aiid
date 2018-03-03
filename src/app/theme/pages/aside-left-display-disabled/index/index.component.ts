@@ -3,6 +3,7 @@ import { Helpers } from '../../../../helpers';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 import { ExperimentService } from '../../../../_services/experiment.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     statusPlanningCnt: number = 0;
     statusBacklogCnt: number = 0;
 
-    constructor(private _script: ScriptLoaderService, private _experimentService: ExperimentService, private _router: Router) { }
+    constructor(private _script: ScriptLoaderService, private _experimentService: ExperimentService, private _router: Router, private _snackbar: MatSnackBar) { }
 
     ngOnInit() {
         this._experimentService.getExperiments()
@@ -70,4 +71,18 @@ export class IndexComponent implements OnInit, AfterViewInit {
               error => this.errorMessage = <any>error);
     }
 
+    filterExperimentBy(filterby, value) {
+        this._experimentService.searchExperimentsByFilter( filterby + "=" + value)
+        .subscribe(
+            myexperiments => {
+               
+               if( myexperiments === false){
+                let noExperiments = this._snackbar.open("No Experiments Found!", 'Close', { duration: 3000});
+               } else {
+                this.myExperiments = [];
+                this.myExperiments.push( myexperiments );
+               }
+             },
+            error => this.errorMessage = <any>error);
+    }
 }

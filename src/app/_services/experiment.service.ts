@@ -31,7 +31,18 @@ export class ExperimentService {
     headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
   
     return  this._http.get(this._apiUrl + '/experiments/' + filter, {headers:headers})
-                    .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
+                   // .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
+                    .catch(this.handleError);
+  }
+
+  searchExperimentsByFilter(filter): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append("Authorization", "Basic " + btoa(this._authCreds));
+    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
+  
+    let url = this._apiUrl + '/searchExperiments?' + filter ;
+    return  this._http.get(this._apiUrl + '/searchExperiments?' + filter, {headers:headers})
+                   // .do(data => console.log( "Data Returned " + JSON.stringify(data) ))
                     .catch(this.handleError);
   }
 
