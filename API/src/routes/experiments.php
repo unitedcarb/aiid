@@ -23,7 +23,7 @@ function getExperiments($_db, $_logger) {
       $_logger->error("PDO Error " . $e->getMessage());
       return array("Error"=> $e->getMessage() );
     }
-    $results = $sth->fetch(PDO::FETCH_ASSOC);
+    $results =  $sth->fetchAll(PDO::FETCH_OBJ);
     return $results;
   }
 
